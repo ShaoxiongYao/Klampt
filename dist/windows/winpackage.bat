@@ -1,8 +1,14 @@
 :: 
 :: script that builds and uploads everything on Windows Visual Studio 2015
-:: (assumes CMake is set up properly, Python is installed, etc)
-:: (assumes this is run on an administrator developer command prompt from the Klampt folder)
-:: (assumes the zip command line tool is available.  See GnuWin32 zip.)
+:: 
+:: Assumes CMake is set up properly, all versions of Python are installed, 
+:: and that numpy / wheel are installed on all versions of Python. May need
+:: to download binary wheels from https://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy
+:: 
+:: Assumes this is run on an administrator developer command prompt from the Klampt folder.
+:: 
+:: Assumes the zip command line tool is available.  See GnuWin32 zip.
+
 
 :: configuration variables
 SET klamptversion=0.9.0
@@ -20,8 +26,10 @@ SET PYTHON38_32=D:\Python38-32\python.exe
 SET PYTHON38_64=D:\Python38\python.exe
 SET PYTHON39_32=D:\Python39-32\python.exe
 SET PYTHON39_64=D:\Python39\python.exe
-SET PYTHON_32_VERSIONS=%PYTHON35_32% %PYTHON36_32% %PYTHON37_32% %PYTHON38_32% %PYTHON39_32%
-SET PYTHON_64_VERSIONS=%PYTHON35_64% %PYTHON36_64% %PYTHON37_64% %PYTHON38_64% %PYTHON39_32%
+SET PYTHON310_32=D:\Python310-32\python.exe
+SET PYTHON310_64=D:\Python310\python.exe
+SET PYTHON_32_VERSIONS=%PYTHON35_32% %PYTHON36_32% %PYTHON37_32% %PYTHON38_32% %PYTHON39_32% %PYTHON310_32%
+SET PYTHON_64_VERSIONS=%PYTHON35_64% %PYTHON36_64% %PYTHON37_64% %PYTHON38_64% %PYTHON39_64% %PYTHON310_64%
 
 for %%P in (%PYTHON_32_VERSIONS%) do (
   %%P --version
