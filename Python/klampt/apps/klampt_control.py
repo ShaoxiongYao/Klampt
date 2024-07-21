@@ -675,8 +675,6 @@ class ControllerGUI(QtWidgets.QMainWindow):
         if self.idleCount % 10 == 1:  #TODO: sync this with the control rate to get reasonable visual updates?
             self.suppressGuiEvents = True
             indices = self.controller.indices(self.activePart)
-<<<<<<< HEAD
-=======
             qmin_rob,qmax_rob = self.robot.getJointLimits()
             for i in range(self.robot.numLinks()):
                 if self.robot.getJointType(i)=='spin':
@@ -684,7 +682,6 @@ class ControllerGUI(QtWidgets.QMainWindow):
                     qmax_rob[i] = math.pi*2
             qmin = self.controller.configFromKlampt(qmin_rob)
             qmax = self.controller.configFromKlampt(qmax_rob)
->>>>>>> 175149d8b72f8352fbed21dda7ff2f32824abde2
             if len(indices) != len(self.jointForms):
                 self.addError("Invalid result from indices({}): {} should be {}".format(self.activePart,len(indices),len(self.jointForms)))
                 self.suppressGuiEvents = False
